@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="et">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Projekti märkused</title>
+    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../bootstrap3/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <!-- <link href="../bootstrap3/css/bootstrap-responsive.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+    <link href="rMarkused.css" rel="stylesheet">
+
+    <!--<script src="scriptid/jquery-1.9.0.min.js"></script>-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="../bootstrap3/js/bootstrap.min.js"></script>
+    <script src="../scriptid/respond.min.js"></script> <!--IE8 jaoks-->
+     <script src="rMarkused.js"></script> <!--IE8 jaoks-->
+
+
+
+  </head>
+  <body>
+    <?php //paneme kirja hetke aja -et jälgida muutusi
+        $path = $_SERVER['DOCUMENT_ROOT'];
+        include( $path ."/login/kont.php"); //kas on lubatud kasutaja
+        include ($path .'/pais/navibar.php');
+    ?>
+    <div class="container">
+        <!-- lepingu otsimine -->
+        <?php
+        if (isset($_POST['submit'])) {
+            # code...
+            $lepNr=$_POST['lepNr'];
+        }else{
+            $lepNr='';
+        }
+        ?>
+
+        <div class="panel panel-default text-center">
+            <div class="panel-body">
+                <h3>
+                    Projekti märkused
+                </h3>
+            </div>
+        </div>
+
+        <div class="row text-center">
+            <form class="form-inline" role="form" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>" >
+                <div class="form-group">
+                    <input type="text" class="form-control" id="lepNr" placeholder="Lepingu nr" name="lepNr" value="<?php echo $lepNr ?>">
+                </div>
+                <button type="submit" name="submit" class="btn btn-info">Otsi leping</button>
+            </form>
+        </div>
+        <br>
+        <!-- põhitabel -->
+        <div class="row col-lg-8 col-lg-offset-2">
+                    <?php
+                    if (isset($_POST['submit'])) {
+                        $lepNr = $_POST['lepNr'];
+                        $path = $_SERVER['DOCUMENT_ROOT'];
+                        include ($path .'/config.php'); //votame sealt sql andmed
+                        $query = "SELECT LEPNR, JOB, Markus ";
+                        $query .="FROM Job ";
+                        $query .="WHERE ((LEPNR like ?) AND (Markus IS NOT NULL)) ";
+                        $query .="ORDER BY LEPNR, JOB";
+                        $params=array($lepNr);
+                        $result =sqlsrv_query($conn, $query, $params);
+                            if (sqlsrv_has_rows( $result )===false) { //kui ei ole andmeid siis näitame hoiatust
+                                echo "<div class='alert alert-warning text-center'>Selle koodiga ei leia midagi!<br>Proovi % märki koodi lõpus. Näiteks 13001% jne</div>";
+                            }else{
+                    ?>
+                                <table class="table table-condensed table-hover table-bordered table-striped">
+                                <thead>
+                                    <th width="15%">Lepingu nr</th>
+                                    <th width="20%">Töö</th>
+                                    <th>Märkused</th>
+                                </thead>
+                                <tbody>
+                            <?php
+                                while($row = sqlsrv_fetch_array($result)) {
+                                    echo "<tr>";
+                                    echo "<td>" . $row["LEPNR"] . "</td>";
+                                    echo "<td>" . $row["JOB"] . "</td>";
+                                    echo "<td>" . $row["Markus"] . "</td>";
+                                }
+                            }
+                            sqlsrv_close($conn);
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+        </div>    
+    </div>
+
+
+  </body>
+  </head>
+  </html>

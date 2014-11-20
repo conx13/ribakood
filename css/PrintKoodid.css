@@ -1,0 +1,28 @@
+
+/*Anname oma ribakoodi fondi kaasa*/
+@font-face {
+  font-family: "Ribakood2";
+	src: url("IDKood_0.eot"); /*IE jaoks*/
+  	src: local("☺"),
+  	url('IDKood_0.eot') format('embedded-opentype'), /*IE jaoks*/
+  	url('IDKood_0.ttf') format('truetype');/* Safari, Android, iOS */
+  }
+
+
+/*body {
+padding-top: 40px;
+}*/
+
+#ribakood {
+	font-family: Ribakood2;
+	font-size: 16px;
+	text-align: center;
+	margin-bottom:;
+}
+.table th, .table td{
+	text-align: center;
+}
+
+h3 {
+	margin-top: 10px;
+}

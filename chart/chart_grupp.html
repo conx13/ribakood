@@ -1,0 +1,103 @@
+<html lang="et">
+<head>
+    <meta charset="utf-8">    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Graafik</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../bootstrap3/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+    <link href="../css/chart.css" rel="stylesheet">
+	<link href="../pais/navibar.css" rel="stylesheet">
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="../bootstrap3/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="../scriptid/respond.min.js"></script> <!--IE8 jaoks-->
+    
+    <script type="text/javascript">
+        $(function(){
+        $('.nav>li:contains("Aru")').addClass('active');
+        $("#navText").html("Aruanded");
+		});
+        google.load("visualization", "1", { packages: ["corechart"] });
+        google.setOnLoadCallback(drawChart1);
+        google.setOnLoadCallback(drawChart2);
+        google.setOnLoadCallback(drawChart3);
+
+        function drawChart1() {
+            var jsonData = $.ajax({
+                url: "chart_data.php",
+                dataType: "json",
+                async: false
+            }).responseText;
+
+            var obj = jQuery.parseJSON(jsonData);
+            var data = google.visualization.arrayToDataTable(obj);
+
+            var options = {
+                title: 'Ruutmeetreid kuus:'
+            };
+
+            var chart = new google.visualization.ColumnChart(
+                        document.getElementById('chart_div1'));
+            chart.draw(data, options);
+        }
+        
+        function drawChart2() {
+            var jsonData = $.ajax({
+                url: "chart_kuus.php",
+                dataType: "json",
+                async: false
+            }).responseText;
+
+            var obj = jQuery.parseJSON(jsonData);
+            var data = google.visualization.arrayToDataTable(obj);
+
+            var options = {
+                title: 'Tunde kuus:'
+            };
+
+            var chart = new google.visualization.ColumnChart(
+                        document.getElementById('chart_div2'));
+            chart.draw(data, options);
+        }
+
+        function drawChart3() {
+            var jsonData = $.ajax({
+                url: "chart_m2kuus.php",
+                dataType: "json",
+                async: false
+            }).responseText;
+
+            var obj = jQuery.parseJSON(jsonData);
+            var data = google.visualization.arrayToDataTable(obj);
+
+            var options = {
+                title: 'm2/tunnis:'
+            };
+
+            var chart = new google.visualization.LineChart(
+                        document.getElementById('chart_div3'));
+            chart.draw(data, options);
+        }
+
+
+    </script>
+</head>
+<body>
+    <?php 
+    //session_start();
+    include('../pais/navibar.php'); 
+    require("../login/kont.php"); //kas on lubatud kasutaja
+    ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div id="chart_div3" style="height: 400px;"></div>
+                <div id="chart_div1" style="height: 400px;"></div>
+                <div id="chart_div2" style="height: 400px;"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

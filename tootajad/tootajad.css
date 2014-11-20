@@ -1,0 +1,44 @@
+/*body {
+	font-size: 12px !important;
+}*/
+
+/*thead {
+	background-color:#EEEEEE ;
+}*/
+
+/*pisikesed nupud rea peal - peidame*/
+div.reaNupud {
+	display:none;
+}
+
+/*pisikesed nupud rea peal - näitame*/
+table#tootTabel tr:hover div.reaNupud {
+	display:inline-block;
+}
+
+table#tootTabel [class^="fa"] {
+	margin-left:2px;
+	margin-right:2px;
+	font-size: 14px;
+	padding-left: 3px;
+	padding-right: 3px;
+	text-decoration:none;
+	width: 20px;
+	color:DarkGray;
+}
+table#tootTabel [class^="fa"]:hover {
+    font-size: 16px;
+}
+table#tootTabel .tume:hover {
+	color:DarkSlateGray;
+}
+
+.teateAken {
+    display: none;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    margin-left: -150px;
+    width: 300px;
+    z-index: 9999;
+}

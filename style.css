@@ -1,0 +1,407 @@
+body {
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+h1 {
+	font-size:25px;
+	text-align: center;
+}
+
+footer {
+	text-align: right;
+}
+
+
+table.andmed {
+	border-collapse:collapse;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 16px;
+	background-color: white;
+}
+
+table.andmed td {
+	border: 1px solid #888888; padding: 2px;padding-left: 5px;
+}
+
+table.andmed th {
+	border: 1px solid #888888; 
+	padding: 2px;
+	padding-left: 5px;
+	background-color: #E8E8E8;
+}
+
+tbody.andmed tr:hover td{
+background-color: #e8eae9;
+visibility: visible;
+}
+
+tbody.andmed tr:nth-child(even) {			/*kasutame paaritutel ridadel */
+background: #F0f0f0;
+}
+
+tr#muutunudRida {				/*kasutame mmutunud rea juures*/
+	background-color: #FFFFCC;
+}
+	
+
+td#grupp { 						/*kasutame grupi pealkirjas */
+padding-left: 40px;
+background-color: #F0f0f0;
+text-align: left;
+font-style: italic;
+font-weight: bold;
+font-size: 10px;
+}
+
+
+div.login {
+width: 300px;
+margin-left: auto;
+margin-right: auto;
+box-shadow: 10px 10px 5px #888888;
+border:1px solid #a1a1a1;
+border-radius:15px;
+}
+
+div.joon {
+	margin-left: auto;
+	margin-right: auto;
+	width:100%;
+	border-bottom: 1px solid #999;
+	border-top-left-radius:15px;
+	border-top-right-radius:15px;
+	font-size:25px;
+	text-align: center;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	background-color: #f8f8f8;
+}
+
+.login {
+	font-size: 20px;
+}
+
+input.login {
+	width:80%;
+	padding: 2px 2px 2px 4px;
+	margin: 0px;
+	line-height:25px;
+	border: 1px solid #888888;
+}
+
+#lognup {
+		font-family: Helvetica, Arial, sans-serif;
+	font-size: 20px;
+	padding: 1px;
+	margin: 0px;
+	line-height:25px;
+	border: 1px solid #a1a1a1;
+	border-radius:15px;
+	width:60%;
+	box-shadow: 2px 2px 1px #888888;
+}
+
+table#login {
+width: 100%;
+padding: 15px;
+}
+
+table#login td {
+	padding: 5px;
+}
+
+div#UusRida {
+	display:none; /* kaotame uue rea lisamise vaikimisi */
+	position:absolute;
+ 	top:76px;
+	width:700px;
+ 	margin-left:-350px;
+ 	left: 50%;
+	box-shadow: 10px 10px 5px #888888;
+	border:1px solid #a1a1a1;
+	border-radius:15px;
+	text-align:center;
+	background-color: #FFFFFF;
+
+}
+table.UusRida {
+	border-collapse:collapse;	
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table.UusRida td {
+padding-left: 5px;
+}
+input.UusRida {
+	font-size: 16px;
+	width:97%;
+	padding: 2px 2px 2px 2px;
+	line-height:20px;
+	border: 1px solid #888888;
+}
+select.UusRida {
+	font-size: 16px;
+	width:97%;
+	padding: 2px 2px 2px 2px;
+	line-height:20px;
+	border: 1px solid #888888;
+}
+
+
+
+.UusRidaNupp {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	padding: 1px;
+	margin: 10px;
+	line-height:20px;
+	border: 1px solid #a1a1a1;
+	border-radius:15px;
+	width:100px;
+	box-shadow: 2px 2px 1px #888888;
+}
+
+
+#Salvesta {
+background-color: #CCFFCC;
+}
+
+#Cancel {
+background-color: #FFCCCC;
+}
+
+div.sisu {
+	padding: 15px;
+}
+#Proov_text {
+	border-right: 1px solid #999;
+}
+div.lisahulgi_raam {
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 10px 10px 5px #888888;
+	border:1px solid #a1a1a1;
+	border-radius:15px;
+}
+div.lisahulgi {
+		padding: 20px;
+}
+
+div.RKoodid_nupud {
+	display: block;
+}
+
+.RKoodid_nupud table {
+	/*border: 1px solid #a1a1a1;*/
+	width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0px;
+
+}
+.RKoodid_nupud th {
+	/*border: 1px solid #a1a1a1;*/
+	/*color: rgb(85, 85, 102);*/
+	/*border-radius: 3px;*/
+	/*box-shadow: 3px 3px 3px 3px rgba(43, 43, 77, 0.5);*/
+	padding: 5px;
+	margin-right: 10px;
+}
+
+button.RKoodid_nupud {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	background-color: rgb(255, 255, 255);
+	color: rgb(85, 85, 102);
+	padding: 3px;
+	margin: 0 0;
+	margin-right: auto;
+	margin-left: auto;
+	border: 1px solid #a1a1a1;
+	/*border-radius:3px;*/
+	width:90%;
+	/*box-shadow: 3px 3px 3px 3px rgba(43, 43, 77, 0.5);*/
+}
+
+.RKoodid_nupud button:hover {
+		background-color: rgb(248, 248, 248);
+}
+
+div.navip {
+	float: left;
+	position: fixed;
+	top: 50%;
+	margin-top: -100px;
+	width: 120px;
+	height: 120px;
+	text-align: right;
+}
+
+.navip ul {
+	margin:0;
+	padding:0;
+		border: 1px solid #a1a1a1;
+}
+
+.navip li {
+
+	list-style: none;
+	margin: 10px;
+}
+
+.navip li a:link ,
+.navip li a:visited {
+	background-color: rgb(255, 255, 255);
+	color: rgb(85, 85, 102);
+	display: block;
+	padding: 2px;
+	text-decoration: none;
+	margin: 0 0 0.2em 0;
+	border-radius: 3px;
+	box-shadow: 3px 3px 3px 3px rgba(43, 43, 77, 0.5);
+}
+
+.navip li a:hover {
+	background-color: rgba(255, 255, 200, 0.8);
+	color: rgb(43, 43, 77);
+}
+
+.peida {
+	display:none;
+}
+
+
+div#MuudaRida {
+	display:none; /* kaotame uue rea lisamise vaikimisi */
+	position:absolute;
+ 	top:20px;
+	width:700px;
+ 	margin-left:-350px;
+ 	left: 50%;
+	box-shadow: 10px 10px 5px #888888;
+	border:1px solid #a1a1a1;
+	border-radius:15px;
+	text-align:center;
+	background-color: #FFFFFF;
+}
+div#progress {
+		white-space:nowrap;
+      	background-color: #e8eae9;
+      	/*background: -moz-linear-gradient(right, #e8eae9, #fff);
+      	background: -webkit-gradient(linear, left center, right center, from(#e8eae9), to(#fff));*/
+       /*width: 40%;Adjust with JavaScript */
+       border-radius: 2px;	
+}
+td.progress {
+		/*white-space:nowrap;*/
+
+      	/*background-color: #e8eae9;*/
+      	background: url(images/prog.png);
+      	background-repeat: no-repeat;
+      	background-size:100% 100%;
+       	/*Adjust with JavaScript */
+       	
+}
+#Otsi_koodi {
+	width:700px;
+	position: relative;
+ 	margin-left:-350px;
+ 	left: 50%;
+ 	display:none; /* kaotame uue rea lisamise vaikimisi */
+}
+table.Otsi_koodi {
+	/*border-collapse:collapse;*/
+	width: 100%;
+	border: 1px solid;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 16px;
+}
+
+table.Otsi_koodi td {
+padding-left: 5px;
+}
+input.Otsi_koodi {
+	font-size: 16px;
+	width:97%;
+	padding: 2px 2px 2px 2px;
+	line-height:20px;
+	border: 1px solid #888888;
+}
+
+#Leht {
+margin-right: auto;
+margin-top: 20px;
+background: #FAFAFA;
+margin-left: auto;
+height: 1300px;
+width: 900px;
+border:1px solid #a1a1a1;
+border-radius:3px;
+}
+
+.sisuTabel {
+	float: left;
+	width: 620px;
+	height: 700px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 0px;
+	border:1px solid #FAFAFA;
+	border-radius: 10px;
+}
+
+.poleTool {
+	margin-top: 60px;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: 150px;
+	height: 700px;
+	float:right;
+	border:1px solid #FAFAFA;
+	border-radius: 10px;
+	padding: 5px;
+}
+.poleTool ol {
+	padding-left: 25px;
+}
+.poleTool p {
+	font-size: 0.8em;
+	color: red;
+}
+
+
+.sisuTootajad {
+	width: 970px;
+	height: 800px;
+	padding: 0px;
+	margin-right: auto;
+	margin-left: auto;
+	/*position: relative;*/
+}
+.synnip {
+	margin-top: 60px;
+	margin-right: 5px;
+	margin-left: 5px;
+	padding: 5px;
+	width: 150px;
+	height: 400px;
+	float:left;
+	border:1px solid #FAFAFA;
+	border-radius: 10px;
+
+}
+.synnip:first-child {
+	color: green;
+	font-size: 1em;
+	font-family: cursive;
+}
+
+#rBody {
+	margin: 0px;
+	
+}

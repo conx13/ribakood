@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content=" text/html; charset = utf-8" />
+		<title>Ribakood 1.0</title>
+		<link rel="stylesheet" href="style.css"/>	
+	</head>
+	<body>
+
+		<div class="sisuTootajad">
+			<div class="synnip">
+				<?php
+				$aasta=date("Y");
+				//$synnip="0129";				
+				$synnip=date("md");
+				//echo $synnip;
+				include 'config.php'; //votame sealt sql andmed
+				$querys = "SELECT ENIMI +' '+PNIMI AS Nimi, IKOOD ";
+				$querys .= "FROM TOOTAJAD ";
+				$querys .= "WHERE ((IKOOD like '___".$synnip."____') AND (Aktiivne='1'))";			
+				$querys .= "ORDER BY NIMI";
+				$results =sqlsrv_query($conn, $querys);
+				?>
+				<p>Sünnipäevad täna:</p>
+				<ol style="font-family:Arial; font-size:0.8em">
+				<?php	while($rows = sqlsrv_fetch_array($results))	//kui on miskit, siis täitame tabeli
+						{
+						$ikood=19 .substr($rows["IKOOD"],1,2);
+						$ikood=$aasta-$ikood;
+						echo "<li>" . $rows["Nimi"] . " (".$ikood .")</li>";
+						}
+					//sqlsrv_close($conn)
+				?>
+				</ol>
+				
+			</div> <!-- synnip -->
+			<div class="sisuTabel">
+			<?php
+				require_once("kont.php");
+				include 'config.php'; //votame sealt sql andmed
+				$query = "SELECT GNIMI, Count (GNIMI) AS KOKKU ";
+				$query .= "FROM wLyhikeTanaTool_kogus ";//wLyhikeTanaTool
+				$query .= "GROUP BY GNIMI";
+				$result = sqlsrv_query($conn, $query);
+				while ($row = sqlsrv_fetch_array($result)) {
+					$grupp [$row["GNIMI"]] = $row["KOKKU"]; //tekitame array grupi summadega
+				}
+				sqlsrv_close($conn);//sulgeme ühenduse
+				if (!isset($_SESSION['kontroll'])) {
+					$_SESSION ['kontroll'] = time();
+				}
+				else if (time() - $_SESSION['kontroll'] > 21600){
+					$_SESSION ['kontroll'] = time();
+				}
+				include 'config.php';
+				//koostame sql CONVERT(varchar (5),START,108) AS START
+				$query = "SELECT NIMI, LEPNR, TOO, GNIMI, START, KOGUS ";
+				$query .= "FROM wLyhikeTanaTool_kogus "; //wLyhikeTanaTool
+				$query .= "Order by GNIMI, LEPNR, TOO, START ";
+				//käivitame sql
+				$result = sqlsrv_query($conn, $query, array(), array( "Scrollable" => SQLSRV_CURSOR_KEYSET ));
+				$numRows = sqlsrv_num_rows( $result );//loeme kokku mitu rida tuli
+				$aeg = date("H:i"); //võtame hetke aja
+				if ($numRows == false)
+					echo "<h1> Hetkel ($aeg) ei ole registreerunud! </h1>";//kui ei leidnud miskit
+				else
+					echo "<h1> <a href='index.html'> Hetkel </a> ($aeg) on registreerinud: " . ($numRows > 1 ? $numRows ." töötajat.": $numRows ." töötaja.") . " </h1>";
+			?>
+			<p><a href="http://10.0.30.103:8008/tool/rTool.php">Uus tabel prooviks...</a></p>
+			<table class= "andmed" width="600">
+				<tr>
+					<th>Nimi</th>
+					<th>Leping</th>
+					<th width="40%">Töö</th>
+					<th width="10%">Algus</th>
+				</tr>
+			<tbody class="andmed">	
+				<?php
+					echo (strtotime(time()));
+					$eelmine_rida = "";
+					while($row = sqlsrv_fetch_array($result))	//kui on miskit, siis täitame tabeli
+						{
+			  			if ( $eelmine_rida <> $row["GNIMI"]){
+			  				echo("<tr>");
+			  				echo "<td colspan = '4' id = 'grupp' >" . $row["GNIMI"] . ": (" . $grupp[$row["GNIMI"]] . ")</td>";
+			  				echo "</tr>";
+			  			}//if
+			  			if ($_SESSION['kontroll'] <= strtotime( $row["START"])) {
+			  				echo "<tr id = 'muutunudRida'>";
+			  			}else {
+			  				echo "<tr>" ;
+			  			}//if
+						//echo strtotime( $row["START"] ) . "</br>";
+						//echo "<td>" . $row["GNIMI"] . "</td>";
+						echo "<td>" . $row["NIMI"] . "</td>";
+						echo "<td>" . $row["LEPNR"] . "</td>";
+								
+						if ($row["KOGUS"] > 0) {
+							echo "<td title=". round($row["KOGUS"],1). "m2"." > <div	id = 'progress' style='width:" . round(($row["KOGUS"] / 23) * 100) . "%;'>" . $row["TOO"] . "</div></td>";
+						}else {
+							echo "<td>" . $row["TOO"] . "</td>";
+						};//if
+								
+						echo "<td>" . date("H:i", strtotime( $row["START"] )) ."</td>";
+						echo "</tr>";
+						$eelmine_rida = $row["GNIMI"];
+					} //while
+					sqlsrv_close($conn);//sulgeme ühenduse
+					$_SESSION ['kontroll'] = time(); //paneme kirja vaatamise aja
+				?>
+			</tbody>
+			</table> <!-- andmed -->
+			</div> <!-- sisuTabel -->
+			<div class="poleTool">
+				<p>Ei ole hetkel aktiivsed:</p>
+				<?php
+					include 'config.php'; //votame sealt sql andmed
+					$query = "SELECT PNIMI +' '+ENIMI AS Nimi ";
+					$query .= "FROM TOOTAJAD ";
+					$query .= "WHERE aktiivne=1 and((ENIMI +' '+PNIMI not in (SELECT NIMI FROM wLyhikeTanaTool))) ";			
+					$query .= "ORDER BY NIMI";
+					$result =sqlsrv_query($conn, $query);
+				?>
+				<ol style="font-family:Arial; font-size:0.8em">
+				<?php	
+				while($row = sqlsrv_fetch_array($result))	//kui on miskit, siis täitame tabeli
+					{
+					echo "<li>" . $row["Nimi"] . "</li>";
+					}
+					sqlsrv_close($conn)
+				?>
+				</ol>
+			</div> <!-- poleTool -->
+
+		</div> <!-- sisu2 -->
+	</body>
+</html>

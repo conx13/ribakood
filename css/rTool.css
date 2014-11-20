@@ -1,0 +1,120 @@
+body {
+	/*padding-top: 70px;*/
+	/*padding-bottom: 70px;*/
+	font-size: 12px;
+}
+/*body .modal-muuda {
+	width: 800px;
+	margin-left: -400px;
+}*/
+thead {
+	background-color:#EEEEEE ;
+}
+.suurus {
+	white-space:nowrap;
+    background-color: #e8eae9;
+    border-radius: 2px;
+    max-width:100%;
+}
+.suurusTaust {
+      	/*background-color: white;*/
+      	border:1px #e8eae9 solid;
+       border-radius: 2px;	
+}
+
+.peidus {
+	display:none;
+}
+
+td.hidden {
+	display: none;
+}
+
+.keskel_joondus {
+text-align: center;
+}
+
+#kell {
+	/*position: absolute;
+	left: 0;
+	right: 0;*/
+	margin-top: 50px;
+	font-weight: normal;
+	vertical-align: middle;
+	font-size: 70px;
+	color:	#C5C5BD; 
+	/*text-align: center;
+	line-height: ;
+	z-index: +1;*/
+}	
+
+
+.panel-heading {
+	padding: 2px;
+}
+.panelbody-madal {
+	padding-bottom: 0px !important;
+	padding-top: 0px !important;
+}
+
+.list-group-item {
+	padding: 5px;
+}
+
+
+#pealkiri {
+	margin-top:-10px;
+}
+
+#SisuTabel {
+	margin-bottom: 0px;
+}
+
+#SisuTabel td {
+	vertical-align: middle;
+}
+
+#SisuTabel i {
+	color:red;
+	font-size: 14px;
+}
+
+#SisuTabel a {
+	text-decoration: none;
+	color:black;
+}
+
+
+/*Mitteaktiivsete koodide otsimise
+paneel.*/ 
+#mitteAkt_Paneel {
+    width:500px;
+    max-height:394px;
+    overflow:scroll;
+    overflow-y:auto; 
+    overflow-x:hidden;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom: 0px;
+}
+
+#aktKood_Modal .modal-footer {
+	margin-top: 0px;
+}
+
+.uRida:hover .uRidaText {
+	display: inline-block;
+}
+
+.uRidaText {
+	display: none;
+	margin-left:2px;
+	margin-right:2px;
+	padding-left: 3px;
+	padding-right: 3px;
+	text-decoration:none;
+	width: 20px;
+	color:DarkGray;
+}
+
+

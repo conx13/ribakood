@@ -1,0 +1,15 @@
+body {
+	font-size: 12px;
+}
+
+h3 {
+	margin-top: 10px;
+}
+
+th {
+	text-align: center;
+}
+
+.table tbody>tr>td {
+	vertical-align: middle;
+}

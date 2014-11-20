@@ -1,0 +1,152 @@
+body {
+    font-size: 12px;
+}
+thead {
+    background-color: #EEEEEE;
+}
+.koodiNupud {
+    margin-bottom: 10px;
+}
+#otsiNupud {
+    display: none;
+}
+.pNuppEsimene {
+    float: none;
+    margin-left: 0px;
+}
+.fOtsi {
+    margin: 0;
+    display: inline;
+}
+.pNuppOtsi {
+    margin-bottom: 0px;
+    margin-left: 30px;
+}
+.alerttyhi {
+    display: inline;
+}
+/*pisikesed nupud rea peal - peidame*/
+
+table#sisuTabel div.reaNupud {
+    display:none;
+}
+/*pisikesed nupud rea peal - näitame*/
+
+table#sisuTabel tr:hover div.reaNupud {
+    display: inline-block;
+}
+
+table#sTabel div.peida1 {
+    display: none;
+}
+
+
+table#sisuTabel [class^="fa"] {
+    margin-left: 2px;
+    margin-right: 2px;
+    font-size: 14px;
+    padding-left: 3px;
+    padding-right: 3px;
+    text-decoration: none;
+    width: 20px;
+    color: DarkGray;
+}
+table#sisuTabel [class^="fa"]:hover {
+    font-size: 14px;
+}
+table#sisuTabel .fa-trash-o:hover {
+    color: red;
+}
+table#sisuTabel .tume:hover {
+    color: DarkSlateGray;
+}
+table#sisuTabel .popover-title {
+    font-size: 12px;
+    line-height: 14px;
+    color: red;
+}
+table#sisuTabel .popover.bottom {
+    margin-top: 7px;
+}
+.delete {
+    margin-left: 10px;
+}
+.rInfo {
+    display: none;
+    position: absolute;
+    margin-top: 20%;
+    left: 0;
+    right: 0;
+    /*z-index: 1;*/
+}
+.rError {
+    display: none;
+    position: absolute;
+    margin-top: 20%;
+    left: 0;
+    right: 0;
+    /*z-index: 1;*/
+}
+/*Miskipärast ei ole inline formis kõik ühe rea peal*/
+
+.form-inline.spetsLaius.form-control {
+    width: 100% !important;
+}
+/*.form-inline select.form-control{
+	width:100% !important;
+}*/
+
+.laius4 {
+    width: 216px !important;
+}
+.laius3 {
+    width: 155px !important;
+}
+.laius2 {
+    width: 93px !important;
+}
+.laius15 {
+    width: 64px !important;
+}
+.laius1 {
+    width: 32px !important;
+}
+.modalLai {
+    width: 650px !important;
+    margin-top: 10%;
+}
+.modal-hulgi {
+    width: 295px !important;
+    margin-top: 10%;
+}
+.modal-footer {
+    margin-top: 0px;
+}
+#kasKustu .modal-dialog {
+    width: 500px;
+    margin-top: 10%;
+}
+.modal-footer {
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.pagination {
+    margin-top: 0px;
+}
+#linkModal .panel-body {
+    padding: 0px;
+    max-height: 400px;
+    overflow: scroll;
+    /*    overflow-y:auto; */
+
+overflow-x: hidden;
+}
+#linkModal #linkPaneel, #linkTabel {
+    margin-bottom: 0px;
+}
+#linkModal .panel-heading {
+    text-align: right;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
