@@ -82,7 +82,7 @@ function taidaTabel(){
 				ikood=array.ikood;
 				tid=array.tid;
 				ajagupp=array.ajagupp;
-				tData="data-tid=" + tid;
+				tData="data-tid=" + tid; //proovin
 				if (akt==1){
 					akt="<i class='fa fa-check-square-o'></i>";
 				}else{
