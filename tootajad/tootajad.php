@@ -20,7 +20,8 @@
       		//require_once($path .'/login/kont.php'); //kas on lubatud kasutaja
       		include_once ($path .'/pais/navibar.php'); //võtame päise külge
       	?>
-      	<div class="container">
+      	//niisama proovin
+        <div class="container">
       		<div class="row"> <!-- nupud -->
       			<div class="panel panel-info col-lg-8 col-lg-offset-2" id="Nupud">
       				<div class="panel-body">
