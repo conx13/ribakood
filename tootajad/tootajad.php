@@ -4,12 +4,12 @@
 		<meta charset="utf-8">
 		<title>Tootajad</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="../bootstrap3/css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 		<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
 		<link href="../pais/navibar.css" rel="stylesheet">
 		<link href="tootajad.css" rel="stylesheet">
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    	<script src="../bootstrap3/js/bootstrap.min.js"></script>
+    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     	<script src="../scriptid/bootstrap-paginator.min.js"></script>
     	<script src="tootajad.js"></script>
 
