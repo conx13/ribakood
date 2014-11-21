@@ -17,7 +17,7 @@
 	<body>
 		<?php
 			$path = $_SERVER['DOCUMENT_ROOT'];
-      		require_once($path .'/login/kont.php'); //kas on lubatud kasutaja
+      		//require_once($path .'/login/kont.php'); //kas on lubatud kasutaja
       		include_once ($path .'/pais/navibar.php'); //võtame päise külge
       	?>
       	<div class="container">
