@@ -20,7 +20,6 @@
       		//require_once($path .'/login/kont.php'); //kas on lubatud kasutaja
       		include_once ($path .'/pais/navibar.php'); //võtame päise külge
       	?>
-      	//niisama proovin
         <div class="container">
       		<div class="row"> <!-- nupud -->
       			<div class="panel panel-info col-lg-8 col-lg-offset-2" id="Nupud">
@@ -112,5 +111,49 @@
 				</div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->
 
+			<!-- Uue nime form -->
+			<div class="modal fade" id="uusModal" tabindex="-1" role="dialog" aria-labelledby="uusModal" aria-hidden="true">
+				<div class="modal-dialog modal-sm">
+					<div class="modal-content">
+						<div class="modal-header text-center">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h3 class="modal-title"></h3>
+						</div>
+				        <form  class="form" role="form" id="uTootajaForm" autocomplete="off" method="POST">
+				            <div class="modal-body">
+	                           <input type="hidden" name="uustKood" id="uustKood" >
+                                <div class="form-group">
+	                                <label for="uusEnimi" class="control-label">Eesnimi</label>
+	                                <input type="text" class="form-control kont" autocomplete="off" id="uusEnimi" name="uusEnimi" placeholder="Eesnimi">
+	                           </div>
+	                            <div class="form-group">
+	                                <label for="uusPnimi" class="control-label">Perenimi</label>
+	                                <input type="text" class="form-control kont" autocomplete="off" id="uusPnimi" name="uusPnimi" placeholder="Perenimi">
+	                            </div>
+
+	                            <div class="form-group">
+	                                <label for="uusIkood" class="control-label">Isiku kood</label>
+	                                <input type="text" class="form-control kont" autocomplete="off" id="uusIkood" name="uusIkood" maxlength="11" placeholder="Isikukood">
+	                            </div>
+
+	                            <div class="form-group">
+	                            	<label for="uusAeg" class="control-label" >Aja grupp</label>
+	                            	<select class="form-control kont" name="uusAeg" id="uusAeg">
+	                            	</select>
+	                            </div>
+		                            <div class="form-group">
+		                            <label for="uusAkt">Aktiivne
+		                            <input type="checkbox" class="kont" name="uusAkt" id="uusAkt" checked>
+		                            </label>
+	                            </div>
+                            </div>
+                            <div class="modal-footer text-center">
+                                <button type="button" class="btn btn-default btn-sm col-lg-4 col-lg-offset-2" data-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-primary btn-sm col-lg-4" disabled="disabled" id="uusModalSave">Salvesta</button>
+                            </div>
+				        </form>
+					</div><!-- /.uus modal-content -->
+				</div><!-- /.uus modal-dialog -->
+			</div><!-- /.uus modal -->
       	</div><!-- container -->
 	</body>

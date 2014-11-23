@@ -122,7 +122,7 @@ $(function() {
                 //console.log(data[0].aktiivne);
                 $("#muudaModal #muudaAkt").prop('checked',onAkt);
                 var start= $("#mTootajaForm").serialize();
-                $("#muudaModal").data('start',start);
+                $("#mTootajaForm").data('start',start);
                 $("#muudaModal").modal(); 
             }else {
                console.log(data.Text); 
@@ -186,7 +186,7 @@ function kasValjadOk(vali) {
 //kontrollime kas on tehtud formis muutusi
 //ja kas ei ole erroreid
 function kasFormOnOk () {
-    var formStart = $("#muudaModal").data("start");
+    var formStart = $("#mTootajaForm").data("start");
     var formNyyd = $("#mTootajaForm").serialize();
     var errorList = $("#mTootajaForm .has-error");
     
@@ -231,9 +231,9 @@ function muudaTootaja (andmed) {
 //Uue töötaja lisamise nupp
 $(function(){
     $("#lisa").click(function(){
- 	$("#mTootajaForm")[0].reset();
- 	$("#muudaModal .modal-title").html("Uus töötaja");
- 	$("#muudaModal").modal();
+ 	$("#uTootajaForm")[0].reset();
+ 	$("#uusModal .modal-title").html("Uus töötaja");
+ 	$("#uusModal").modal();
     })
 })
 
